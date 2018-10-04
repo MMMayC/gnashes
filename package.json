@@ -1,0 +1,23 @@
+{
+  "name": "gnashes_cup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MMMayC/gnashes_cup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MMMayC/gnashes_cup/issues"
+  },
+  "homepage": "https://github.com/MMMayC/gnashes_cup#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
