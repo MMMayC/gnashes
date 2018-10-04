@@ -1,1 +1,1 @@
-# gnashes_cup
+# gnashes
