@@ -1,0 +1,68 @@
+[
+  {
+    "name": "May",
+    "profile_photo": "",
+    "last_winner": false,
+    "votes": [
+      {
+        "value": "Fun",
+        "achievement": "We had fun!",
+        "timestamp": "2018-10-04"
+      },
+      {
+        "value": "Respectable",
+        "achievement": "Write good code!",
+        "timestamp": "2018-10-04"
+      },
+      {
+        "value": "Collaborative",
+        "achievement": "Always ready to help!",
+        "timestamp": "2018-10-04"
+      }
+    ]
+  },
+  {
+    "name": "Alex",
+    "profile_photo": "",
+    "last_winner": false,
+    "votes": [
+      {
+        "value": "Fun",
+        "achievement": "We had fun!",
+        "timestamp": "2018-10-04"
+      },
+      {
+        "value": "Respectable",
+        "achievement": "Write good code!",
+        "timestamp": "2018-10-04"
+      },
+      {
+        "value": "Collaborative",
+        "achievement": "Always ready to help!",
+        "timestamp": "2018-10-04"
+      }
+    ]
+  },
+  {
+    "name": "Dev",
+    "profile_photo": "",
+    "last_winner": false,
+    "votes": [
+      {
+        "value": "Fun",
+        "achievement": "We had fun!",
+        "timestamp": "2018-10-04"
+      },
+      {
+        "value": "Respectable",
+        "achievement": "Write good code!",
+        "timestamp": "2018-10-04"
+      },
+      {
+        "value": "Collaborative",
+        "achievement": "Always ready to help!",
+        "timestamp": "2018-10-04"
+      }
+    ]
+  }
+]

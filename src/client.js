@@ -3,6 +3,7 @@ import {hydrate} from 'react-dom'
 import {Provider} from 'react-redux'
 import configureStore from './redux/configureStore'
 import App from './components/app'
+import './style/index.less'
 
 // Read the state sent with markup
 const state = window.__STATE__;
