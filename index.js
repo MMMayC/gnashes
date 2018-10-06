@@ -28,6 +28,6 @@ const ssr = require('./views/server');
 app.get('/', (req, res) => {
   const { preloadedState, content}  = ssr(initialState)
   const response = template(preloadedState, content)
-  res.setHeader('Cache-Control', 'assets, max-age=604800')
+  res.setHeader('Cache-Control', 'public, max-age=604800')
   res.send(response);
 });

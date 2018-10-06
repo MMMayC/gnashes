@@ -10,7 +10,9 @@ class Candidate extends Component {
     for(let app of props.apps){
       cards.push(
            <div className="app-card" key={app.name}>
-                <NominateButton img={app.img} appno={cardNumber} totalapps={props.totalapps} />
+              <img src={app.profile_photo} />
+              <p>{app.name}</p>
+              <NominateButton img={app.img} appno={cardNumber} totalapps={props.totalapps} />
            </div>
          )
       cardNumber++
