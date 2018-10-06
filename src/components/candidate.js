@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
-import CardLeft from './card-left';
-import CardRight from './card-right';
+import NominateButton from './nominateButton';
 
-class Card extends Component {
+class Candidate extends Component {
 
   Cardbaker(props){
 
@@ -11,8 +10,7 @@ class Card extends Component {
     for(let app of props.apps){
       cards.push(
            <div className="app-card" key={app.name}>
-                <CardLeft img={app.img} appno={cardNumber} totalapps={props.totalapps} />
-                <CardRight name={app.name} app={app}/>
+                <NominateButton img={app.img} appno={cardNumber} totalapps={props.totalapps} />
            </div>
          )
       cardNumber++
@@ -33,4 +31,4 @@ class Card extends Component {
 }
 
 
-export default Card;
+export default Candidate;

@@ -3,7 +3,7 @@ import { renderToString } from 'react-dom/server'
 
 import { Provider } from 'react-redux'
 import configureStore from './redux/configureStore'
-import App from './components/app'
+import Nomination from './components/nomination'
 
 
 module.exports = function render(initialState) {
@@ -13,7 +13,7 @@ module.exports = function render(initialState) {
   // render the App store static markup ins content variable
   let content = renderToString(
     <Provider store={store} >
-       <App />
+       <Nomination />
     </Provider>
   );
 

@@ -2,7 +2,7 @@ import React from 'react'
 import {hydrate} from 'react-dom'
 import {Provider} from 'react-redux'
 import configureStore from './redux/configureStore'
-import App from './components/app'
+import Nomination from './components/nomination'
 import './style/index.less'
 
 // Read the state sent with markup
@@ -22,7 +22,7 @@ const store = configureStore(state)
 
 hydrate(
   <Provider store={store} >
-     <App />
+     <Nomination />
   </Provider>,
   document.querySelector('#app')
 )

@@ -2,10 +2,11 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { fetchAppsIfNeeded } from '../redux/actions'
 
-import Card from './card'
+import Candidate from './candidate'
+import Header from './header'
 
 
-class App extends Component {
+class Nomination extends Component {
 
   componentDidMount() {
     const { dispatch } = this.props
@@ -21,7 +22,8 @@ class App extends Component {
        <div>
          {isFetching && apps.length === 0 && <h2>Loading...</h2>}
          {!isFetching && apps.length === 0 && <h2>Empty.</h2>}
-         <Card apps={apps} totalapps={totalapps} />
+         <Header />
+         <Candidate apps={apps} totalapps={totalapps} />
        </div>
     );
   }
@@ -36,4 +38,4 @@ function mapStateToProps(state) {
   }
 }
  
-export default connect(mapStateToProps)(App)
+export default connect(mapStateToProps)(Nomination)
