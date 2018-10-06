@@ -12,22 +12,22 @@ function requestApps() {
 function receiveApps(json) {
   return {
     type: RECEIVE_APPS,
-    apps: json
+    candidates: json
   }
 }
 
 function fetchApps() {
   return dispatch => {
     dispatch(requestApps())
-    return fetch(`data/data.json`)
+    return fetch(`data/candidates.json`)
       .then(response => response.json())
       .then(json => dispatch(receiveApps(json)))
   }
 }
 
 function shouldFetchApps(state) {
-  const apps = state.apps
-  if (apps.length==0) {
+  const candidates = state.candidates
+  if (candidates.length==0) {
     return true
   } else if (state.isFetching) {
     return false

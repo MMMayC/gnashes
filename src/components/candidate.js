@@ -7,12 +7,12 @@ class Candidate extends Component {
 
     let cards = [], cardNumber = 1
 
-    for(let app of props.apps){
+    for(let candidate of props.candidates){
       cards.push(
-           <div className="app-card" key={app.name}>
-              <img src={app.profile_photo} />
-              <p>{app.name}</p>
-              <NominateButton img={app.img} appno={cardNumber} totalapps={props.totalapps} />
+           <div className="app-card" key={candidate.name}>
+              <img src={candidate.profile_photo} />
+              <p>{candidate.name}</p>
+              <NominateButton />
            </div>
          )
       cardNumber++
@@ -26,7 +26,7 @@ class Candidate extends Component {
   render() {
 
     return (
-      <this.Cardbaker apps={this.props.apps} totalapps={this.props.totalapps}/>
+      <this.Cardbaker candidates={this.props.candidates} totalapps={this.props.candidates}/>
     );
   }
 

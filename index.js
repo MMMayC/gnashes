@@ -14,11 +14,11 @@ app.disable('x-powered-by');
 app.listen(process.env.PORT || 3000);
 
 // our apps data model
-const data = require('./data/data.json');
+const candidates = require('./data/candidates.json');
 
 let initialState = {
   isFetching: false,
-  apps: data
+  candidates: candidates
 }
 
 //SSR function import
