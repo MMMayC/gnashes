@@ -1,0 +1,39 @@
+.Candidates {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 15px;
+    .Candidate {
+        width: 200px;
+        padding: 10px;
+        margin: 10px;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 20px;
+        &-Photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid @color-theme-dark;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            img {
+                width: 95%;
+                height: 95%;
+                border-radius: 50%;
+            }
+        }
+        &-Name {
+            text-align: center;
+            font-size: 120%;
+        }
+    }
+}

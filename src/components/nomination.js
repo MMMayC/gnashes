@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
-import { connect } from 'react-redux'
-import { fetchAppsIfNeeded } from '../redux/actions'
+import React, {Component} from "react"
+import { connect } from "react-redux"
+import { fetchAppsIfNeeded } from "../redux/actions"
 
-import Candidate from './candidate'
-import Header from './header'
+import Candidates from "./candidates"
+import Header from "./header"
 
 
 class Nomination extends Component {
@@ -23,7 +23,7 @@ class Nomination extends Component {
          {isFetching && candidates.length === 0 && <h2>Loading...</h2>}
          {!isFetching && candidates.length === 0 && <h2>Empty.</h2>}
          <Header />
-         <Candidate candidates={candidates} totalapps={totalapps} />
+         <Candidates candidates={candidates} totalapps={totalapps} />
        </div>
     );
   }

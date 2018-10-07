@@ -1,4 +1,4 @@
-import { REQUEST_APPS,  RECEIVE_APPS } from './actions';
+import { REQUEST_APPS,  RECEIVE_APPS } from "./actions";
 
 function condidates( state = {isFetching: false, condidates: []}, action) {
   switch (action.type) {

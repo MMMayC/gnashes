@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
 class NominateForm extends Component {
 
   render() {
     return (
-        <div className='Nominate-Modal'>
+        <div className="Nominate-Modal">
             <form className="Nominate-Modal-Form">
                 <label>Value</label>
                 <select>
@@ -15,8 +15,8 @@ class NominateForm extends Component {
                     <option value="artisan">Artisan</option>
                 </select>
                 <label>Achievement</label>
-                <input type='text' />
-                <input type='submit' />
+                <input type="text" />
+                <input type="submit" />
             </form>
         </div>
     );

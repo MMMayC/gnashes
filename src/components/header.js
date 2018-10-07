@@ -1,12 +1,14 @@
-import React, {Component} from 'react';
+import React, {Component} from "react";
 
 class Header extends Component {
     render(){
       return (
-        <div className='Header'>
-            <div>Pacific Digital Gnashes</div>
-            <div>Nominations</div>
-            <div>Result</div>
+        <div className="Header">
+            <div className="Header-Pacific">Pacific Digital</div>
+            <div className="Header-Grizzly">
+                <img src="public/img/grizzly.png" />
+            </div>
+            <div className="Header-Gnashes">Gnashes</div>
         </div>
       );
     }
