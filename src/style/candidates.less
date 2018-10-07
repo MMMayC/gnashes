@@ -1,21 +1,18 @@
 .Candidates {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
-    align-content: flex-start;
-    align-items: flex-start;
+    justify-content: center;
+    align-content: space-evenly;
+    align-items: center;
     flex-wrap: wrap;
     padding: 15px;
+    height: calc(100% - 80px);
     .Candidate {
         width: 200px;
-        padding: 10px;
-        margin: 10px;
-        background-color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin-bottom: 20px;
         &-Photo {
             width: 150px;
             height: 150px;
@@ -25,6 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            background-color: white;
             img {
                 width: 95%;
                 height: 95%;
@@ -34,6 +32,18 @@
         &-Name {
             text-align: center;
             font-size: 120%;
+        }
+        &:hover, &:focus {
+            cursor: pointer;
+            img {
+                opacity: .6;
+                transition: .4s;
+            }
+            .NominateButton {
+                display: block;
+                opacity: 1;
+                transition: all .4s;
+            }
         }
     }
 }

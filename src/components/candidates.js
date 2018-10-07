@@ -12,9 +12,10 @@ class Candidates extends Component {
            <div className="Candidate" key={candidate.name}>
               <div className="Candidate-Photo">
                 <img src={candidate.profile_photo} />
+                <NominateButton />
               </div>
               <div className="Candidate-Name">{candidate.name}</div>
-              <NominateButton />
+              
            </div>
          )
     }

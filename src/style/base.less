@@ -3,8 +3,16 @@ html, body {
     margin: 0;
     background-color: @color-theme-light;
     color: @color-theme-dark;
+    height: 100%;
+}
+.content, #app,  {
+    height: 100%;
+    & > div {
+        height: 100%;
+    }
 }
 
 * {
     font-family: @primary-font;
+    box-sizing: border-box;
 }
