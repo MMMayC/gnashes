@@ -20,7 +20,12 @@ class Candidates extends Component {
          )
     }
 
-    return ( <div className="Candidates"> {candidates} </div> )
+    return ( 
+      <div className="Candidates"> 
+        <h1 className="Candidates-Heading">Who is the best?</h1>
+        {candidates} 
+      </div>
+      )
 
   }
 
