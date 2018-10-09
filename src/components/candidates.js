@@ -1,42 +1,23 @@
 import React, {Component} from "react";
 import NominateButton from "./nominateButton";
+import Candidate from "./candidate";
 
 class Candidates extends Component {
-
-  Cardbaker(props){
-
-    let candidates = []
-
-    for(let candidate of props.candidates){
-      candidates.push(
-           <div className="Candidate" key={candidate.name}>
-              <div className="Candidate-Photo">
-                <img src={candidate.profile_photo} />
-                <NominateButton />
-              </div>
-              <div className="Candidate-Name">{candidate.name}</div>
-              
-           </div>
-         )
-    }
-
-    return ( 
+  render() {
+    return(
       <div className="Candidates"> 
         <h1 className="Candidates-Heading">Who is the best?</h1>
-        {candidates} 
+        {this.props.candidates.map(candidate => {
+          return(
+            <Candidate candidate={candidate}>
+              <NominateButton />
+            </Candidate>
+          )
+        })
+        }
       </div>
-      )
-
+    )
   }
-
-
-  render() {
-
-    return (
-      <this.Cardbaker candidates={this.props.candidates} />
-    );
-  }
-
 }
 
 
