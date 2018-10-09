@@ -21,7 +21,7 @@ const store = configureStore(state)
  */
 
 hydrate(
-  <Provider store={store} >
+  <Provider store={store}>
      <Nomination />
   </Provider>,
   document.querySelector("#app")

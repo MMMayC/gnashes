@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node index.js",
     "pack": "webpack --config webpack.config.js",
+    "pack-watch": "webpack --watch --config webpack.config.js",
     "babel": "babel src -d views",
+    "babel-watch": "babel --watch src -d views",
     "build": "npm run pack && npm run babel"
   },
   "repository": {

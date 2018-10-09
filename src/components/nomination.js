@@ -4,6 +4,7 @@ import { fetchAppsIfNeeded } from "../redux/actions"
 
 import Candidates from "./candidates"
 import Header from "./header"
+import NomimateForm from "./nominateForm"
 
 
 class Nomination extends Component {
@@ -19,11 +20,12 @@ class Nomination extends Component {
     let totalapps = candidates.length;
 
     return (
-       <div>
+       <div className="Nomination">
          {isFetching && candidates.length === 0 && <h2>Loading...</h2>}
          {!isFetching && candidates.length === 0 && <h2>Empty.</h2>}
          <Header />
          <Candidates candidates={candidates} totalapps={totalapps} />
+         <NomimateForm />
        </div>
     );
   }
