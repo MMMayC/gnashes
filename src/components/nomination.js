@@ -20,7 +20,7 @@ class Nomination extends Component {
     let totalapps = candidates.length;
 
     return (
-       <div className="Nomination">
+       <div>
          {isFetching && candidates.length === 0 && <h2>Loading...</h2>}
          {!isFetching && candidates.length === 0 && <h2>Empty.</h2>}
          <Header />

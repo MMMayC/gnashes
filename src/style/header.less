@@ -7,6 +7,7 @@
     color: white;
     height: 80px;
     width: 100%;
+    overflow: hidden;
     &-Pacific {
         font-size: 150%;
         line-height: 95%;
@@ -17,8 +18,22 @@
         width: 105px;
         height: 80px;
         z-index: 1;
+        //overflow: hidden;
         img {
             height: 80px;
+            position: relative;
+            margin: 0;
+            animation-duration: 3s;
+            animation-name: animated-arrow;
+            animation-iteration-count: 1;
+            @keyframes animated-arrow {
+                from {
+                    top: 25px;
+                }
+                to {
+                    top: 0;
+                }
+            }
         }
         
     }
