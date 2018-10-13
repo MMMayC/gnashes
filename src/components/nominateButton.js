@@ -9,9 +9,7 @@ class NominateButton extends Component {
     this.openNominateForm = this.openNominateForm.bind(this);
   }
   openNominateForm() {
-    console.log('this.props :', this.props);
     this.props.updateCurrentCandidate(this.props.candidate);
-    console.log('this.props.currentCandidate :', this.props.currentCandidate);
     let nominateFormElement = document.querySelector(".NominateForm");
     nominateFormElement.setAttribute("style", "display: flex;");
   }
@@ -38,5 +36,3 @@ function mapDispatchToProps(dispatch){
   }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NominateButton);
-
-// export default NominateButton;

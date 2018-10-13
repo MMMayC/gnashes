@@ -29,7 +29,6 @@ class Nomination extends Component {
 }
  
 function mapStateToProps(state) {
-  // console.log('state :', state);
   const { isFetching, candidates, currentCandidate } = state.candidates
   return {
     isFetching,
