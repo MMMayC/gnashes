@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
-import { updateCurrentCandidate } from "../redux/actions";
+import { updateCurrentCandidate } from "../redux/actions/candidatesActions";
 
 class NominateButton extends Component {
   constructor(props) {
@@ -9,11 +9,9 @@ class NominateButton extends Component {
     this.openNominateForm = this.openNominateForm.bind(this);
   }
   openNominateForm() {
-    // console.log('document :', document);
-    // console.log('props :', props);
     console.log('this.props :', this.props);
     this.props.updateCurrentCandidate(this.props.candidate);
-    console.log('this.props after update :', this.props);
+    console.log('this.props.currentCandidate :', this.props.currentCandidate);
     let nominateFormElement = document.querySelector(".NominateForm");
     nominateFormElement.setAttribute("style", "display: flex;");
   }
@@ -28,7 +26,6 @@ class NominateButton extends Component {
 }
 function mapStateToProps(state) {
   const { isFetching, candidates, currentCandidate } = state;
-  // console.log('state :', state);
   return {
     isFetching,
     candidates,
@@ -41,3 +38,5 @@ function mapDispatchToProps(dispatch){
   }, dispatch)
 }
 export default connect(mapStateToProps, mapDispatchToProps)(NominateButton);
+
+// export default NominateButton;

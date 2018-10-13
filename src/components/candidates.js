@@ -7,15 +7,18 @@ class Candidates extends Component {
     return(
       <div className="Candidates"> 
         <h1 className="Candidates-Heading">Who is the best?</h1>
-        {this.props.candidates.map(candidate => {
-          return(
-            <Candidate candidate={candidate}>
-              <NominateButton candidate={candidate} />
-            </Candidate>
-          )
-        })
-        }
-      </div>
+        {
+          this.props.candidates && this.props.candidates !=[] ?
+            this.props.candidates.map(candidate => {
+            return(
+              <Candidate candidate={candidate}>
+                <NominateButton candidate={candidate} />
+              </Candidate>
+            )
+          })
+        : ""
+      }
+    </div>
     )
   }
 }

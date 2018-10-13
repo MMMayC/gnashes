@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
-import { fetchAppsIfNeeded } from "../redux/actions"
+import { bindActionCreators } from 'redux'
+import { fetchCandidatesIfNeeded, updateCurrentCandidate } from "../redux/actions/candidatesActions"
 
 import Candidates from "./candidates"
 import Header from "./header"
@@ -10,8 +11,7 @@ import NomimateForm from "./nominateForm"
 class Nomination extends Component {
 
   componentDidMount() {
-    const { dispatch } = this.props
-    dispatch(fetchAppsIfNeeded())
+    this.props.fetchCandidatesIfNeeded()
   }
 
 
@@ -29,12 +29,19 @@ class Nomination extends Component {
 }
  
 function mapStateToProps(state) {
-  const { isFetching, candidates, currentCandidate } = state
+  // console.log('state :', state);
+  const { isFetching, candidates, currentCandidate } = state.candidates
   return {
     isFetching,
     candidates,
     currentCandidate
   }
 }
+function mapDispatchToProps(dispatch){
+  return bindActionCreators({
+    updateCurrentCandidate: updateCurrentCandidate,
+    fetchCandidatesIfNeeded: fetchCandidatesIfNeeded
+  }, dispatch)
+}
  
-export default connect(mapStateToProps)(Nomination)
+export default connect(mapStateToProps, mapDispatchToProps)(Nomination)

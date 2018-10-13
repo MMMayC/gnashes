@@ -15,11 +15,18 @@ app.listen(process.env.PORT || 3000);
 
 // our apps data model
 const candidates = require('./data/candidates.json');
+const votes = require("./data/votes.json");
 
 let initialState = {
-  isFetching: false,
-  candidates: candidates,
-  currentCandidate: null
+  candidates: {
+    isFetching: false,
+    candidates: candidates,
+    currentCandidate: null
+  },
+  votes: {
+    isFetching: false,
+    votes: votes
+  }
 }
 
 //SSR function import

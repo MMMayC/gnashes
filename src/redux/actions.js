@@ -1,32 +1,32 @@
 
-export const REQUEST_APPS = "REQUEST_APPS"
-export const RECEIVE_APPS = "RECEIVE_APPS"
+export const REQUEST_CANDIDATES = "REQUEST_CANDIDATES"
+export const RECEIVE_CANDIDATES = "RECEIVE_CANDIDATES"
 export const UPDATE_CURRENT_CANDIDATE = "UPDATE_CURRENT_CANDIDATE"
 
 
-function requestApps() {
+function requestCandidates() {
   return {
-    type: REQUEST_APPS
+    type: REQUEST_CANDIDATES
   }
 }
 
-function receiveApps(json) {
+function receiveCandidates(json) {
   return {
-    type: RECEIVE_APPS,
+    type: RECEIVE_CANDIDATES,
     candidates: json
   }
 }
 
-function fetchApps() {
+function fetchCandidates() {
   return dispatch => {
-    dispatch(requestApps())
+    dispatch(requestCandidates())
     return fetch(`data/candidates.json`)
       .then(response => response.json())
-      .then(json => dispatch(receiveApps(json)))
+      .then(json => dispatch(receiveCandidates(json)))
   }
 }
 
-function shouldFetchApps(state) {
+function shouldFetchCandidates(state) {
   const candidates = state.candidates
   if (candidates.length==0) {
     return true
@@ -35,10 +35,10 @@ function shouldFetchApps(state) {
   }
 }
 
-export function fetchAppsIfNeeded() {
+export function fetchCandidatesIfNeeded() {
   return (dispatch, getState) => {
-    if (shouldFetchApps(getState())) {
-      return dispatch(fetchApps())
+    if (shouldFetchCandidates(getState())) {
+      return dispatch(fetchCandidates())
     }
   }
 }
