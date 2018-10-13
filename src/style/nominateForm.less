@@ -1,27 +1,23 @@
 .NominateForm {
     display: none;
+    flex-direction: column;
     position: absolute;
     background-color: white;
     border: 3px solid @color-theme-dark;
     border-radius: 20px;
-    padding: 50px;
+    padding: 20px 50px;
     z-index: 1;
     &-Label {
         font-size: 120%;
+        display: block;
     }
     &-Value {
-        &-Label {
-            margin-right: 8px;
-        }
         &-Select {
             font-size: 120%;
             border: 2px solid @color-theme-dark;
         }
     }
     &-Achievement {
-        &-Label {
-            display: block;
-        }
         &-Textarea {
             border: 2px solid @color-theme-dark;
             outline: none;
@@ -30,7 +26,8 @@
     }
     &-Submit {
         font-size: 120%;
-        margin: auto;
+        margin: 20px auto 0;
+
     }
     &-Cancel {
         cursor: pointer;

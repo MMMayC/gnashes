@@ -18,15 +18,16 @@ const candidates = require('./data/candidates.json');
 
 let initialState = {
   isFetching: false,
-  candidates: candidates
+  candidates: candidates,
+  currentCandidate: null
 }
 
 //SSR function import
-const ssr = require('./views/server');
+const server = require('./views/server');
 
 // server rendered home page
 app.get('/', (req, res) => {
-  const { preloadedState, content}  = ssr(initialState)
+  const { preloadedState, content}  = server(initialState)
   const response = template(preloadedState, content)
   res.setHeader('Cache-Control', 'public, max-age=604800')
   res.send(response);

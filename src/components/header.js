@@ -8,7 +8,7 @@ class Header extends Component {
             <div className="Header-Grizzly">
                 <img src="public/img/grizzly.png" />
             </div>
-            <div className="Header-Gnashes">Gnashes</div>
+            <div className="Header-Gnashes">The Gnashes</div>
         </div>
       );
     }

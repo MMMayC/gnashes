@@ -10,7 +10,7 @@ class Candidates extends Component {
         {this.props.candidates.map(candidate => {
           return(
             <Candidate candidate={candidate}>
-              <NominateButton />
+              <NominateButton candidate={candidate} />
             </Candidate>
           )
         })

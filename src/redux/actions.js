@@ -1,6 +1,7 @@
 
 export const REQUEST_APPS = "REQUEST_APPS"
 export const RECEIVE_APPS = "RECEIVE_APPS"
+export const UPDATE_CURRENT_CANDIDATE = "UPDATE_CURRENT_CANDIDATE"
 
 
 function requestApps() {
@@ -39,5 +40,14 @@ export function fetchAppsIfNeeded() {
     if (shouldFetchApps(getState())) {
       return dispatch(fetchApps())
     }
+  }
+}
+
+export function updateCurrentCandidate(candidate) {
+  return dispatch => {
+      dispatch({
+        type: UPDATE_CURRENT_CANDIDATE,
+        currentCandidate: candidate
+      });
   }
 }

@@ -16,27 +16,24 @@ class Nomination extends Component {
 
 
   render() {
-    const { isFetching, candidates } = this.props
-    let totalapps = candidates.length;
+    const { isFetching, candidates, currentCandidate } = this.props
 
     return (
        <div>
-         {isFetching && candidates.length === 0 && <h2>Loading...</h2>}
-         {!isFetching && candidates.length === 0 && <h2>Empty.</h2>}
          <Header />
-         <Candidates candidates={candidates} totalapps={totalapps} />
-         <NomimateForm />
+         <Candidates candidates={candidates} />
+         <NomimateForm currentCandidate={currentCandidate} />
        </div>
     );
   }
 }
  
 function mapStateToProps(state) {
-  const { isFetching, candidates } = state
- 
+  const { isFetching, candidates, currentCandidate } = state
   return {
     isFetching,
-    candidates
+    candidates,
+    currentCandidate
   }
 }
  

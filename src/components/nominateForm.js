@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import Candidate from "./candidate";
 
 class NominateForm extends Component {
     constructor(props){
@@ -12,6 +13,7 @@ class NominateForm extends Component {
   render() {
     return (
         <form className="NominateForm">
+            {this.props.currentCandidate != null ? <Candidate candidate={this.props.currentCandidate} /> : ""}
             <label className="NominateForm-Label NominateForm-Value-Label">Value</label>
             <select className="NominateForm-Value-Select">
                 <option value="fun">Fun</option>
@@ -21,7 +23,7 @@ class NominateForm extends Component {
                 <option value="artisan">Artisan</option>
             </select>
             <label className="NominateForm-Label NominateForm-Achievement-Label">Achievement</label>
-            <textarea cols="50" rows="5" className="NominateForm-Achievement-Textarea"></textarea>
+            <textarea className="NominateForm-Achievement-Textarea"></textarea>
             <input type="submit" className="Button NominateForm-Submit" />
             <a className="NominateForm-Cancel" onClick={this.closeNominateForm}>Cancel</a>
         </form>
