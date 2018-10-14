@@ -11,18 +11,18 @@ import VotesSummary from "./votesSummary"
 class Result extends Component {
 
   componentDidMount() {
-    this.props.fetchCandidatesIfNeeded()
+    this.props.fetchVotesIfNeeded()
   }
 
 
   render() {
-    const { isFetching, votes } = this.props
-
+    const { votes } = this.props
+    console.log('votes :', votes);
     return (
        <div>
          <Header />
          <VotesChart votes={votes} />
-         <VotesSummary />
+         <VotesSummary votes={votes} />
        </div>
     );
   }
