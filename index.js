@@ -33,8 +33,8 @@ let initialState = {
 const server = require('./views/server');
 
 // server rendered home page
-app.get('/', (req, res) => {
-  const { preloadedState, content}  = server(initialState)
+app.get('/*', (req, res) => {
+  const { preloadedState, content}  = server(initialState, req.url)
   const response = template(preloadedState, content)
   res.setHeader('Cache-Control', 'public, max-age=604800')
   res.send(response);

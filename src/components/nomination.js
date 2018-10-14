@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { fetchCandidatesIfNeeded, updateCurrentCandidate } from "../redux/actions/candidatesActions"
+import { fetchCandidatesIfNeeded } from "../redux/actions/candidatesActions"
 
 import Candidates from "./candidates"
 import Header from "./header"
@@ -38,7 +38,6 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    updateCurrentCandidate: updateCurrentCandidate,
     fetchCandidatesIfNeeded: fetchCandidatesIfNeeded
   }, dispatch)
 }
