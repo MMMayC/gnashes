@@ -24,6 +24,7 @@
   "homepage": "https://github.com/MMMayC/gnashes#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "mongoose": "^5.3.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",

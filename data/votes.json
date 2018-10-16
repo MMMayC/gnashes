@@ -1,5 +1,17 @@
 [
-    {   "candidate": "May",
+    {   "candidate": "Alex",
+        "value": "Fun",
+        "achievement": "We had fun!",
+        "timestamp": "2018-10-04"
+    },
+    {
+        "candidate": "Dev",
+        "value": "Fun",
+        "achievement": "We had fun!",
+        "timestamp": "2018-10-04"
+    },
+    {
+        "candidate": "Imran",
         "value": "Fun",
         "achievement": "We had fun!",
         "timestamp": "2018-10-04"
@@ -11,19 +23,7 @@
         "timestamp": "2018-10-04"
     },
     {
-        "candidate": "May",
-        "value": "Fun",
-        "achievement": "We had fun!",
-        "timestamp": "2018-10-04"
-    },
-    {
-        "candidate": "May",
-        "value": "Fun",
-        "achievement": "We had fun!",
-        "timestamp": "2018-10-04"
-    },
-    {
-        "candidate": "May",
+        "candidate": "Harsheet",
         "value": "Fun",
         "achievement": "We had fun!",
         "timestamp": "2018-10-04"
