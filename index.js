@@ -1,20 +1,20 @@
-const express = require('express'),
+const express = require("express"),
           app = express(),
-     template = require('./views/template')
-         path = require('path');
-
+     template = require("./views/template")
+         path = require("path");
+const mongoose = require("mongoose");
 
 // Serving static files
-app.use('/public', express.static(path.resolve(__dirname, 'public')));
-app.use('/media', express.static(path.resolve(__dirname, 'media')));
+app.use("/public", express.static(path.resolve(__dirname, "public")));
+app.use("/media", express.static(path.resolve(__dirname, "media")));
 
 // hide powered by express
-app.disable('x-powered-by');
+app.disable("x-powered-by");
 // start the server
 app.listen(process.env.PORT || 3000);
 
 // our apps data model
-const candidates = require('./data/candidates.json');
+const candidates = require("./data/candidates.json");
 const votes = require("./data/votes.json");
 
 let initialState = {
@@ -30,12 +30,29 @@ let initialState = {
 }
 
 //SSR function import
-const server = require('./views/server');
+const server = require("./views/server");
 
 // server rendered home page
-app.get('/*', (req, res) => {
+app.get("/*", (req, res) => {
   const { preloadedState, content}  = server(initialState, req.url)
   const response = template(preloadedState, content)
-  res.setHeader('Cache-Control', 'public, max-age=604800')
+  res.setHeader("Cache-Control", "public, max-age=604800")
   res.send(response);
 });
+
+// database
+
+mongoose.connect("mongodb://localhost:27017/gnashes");
+
+Candidates = require("./models/candidates");
+Votes = require("./models/votes");
+
+app.post("/vote", (req, res) => {
+  var vote = req.body;
+  Votes.create(vote, (err, votes) => {
+    if(err) {
+      throw err;
+    }
+    res.json(vote);
+  });
+})
