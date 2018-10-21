@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { fetchCandidatesIfNeeded } from "../redux/actions/candidatesActions"
+import { getCandidates } from "../redux/actions/candidatesActions"
 
 import Candidates from "./candidates"
 import Header from "./header"
@@ -11,13 +11,12 @@ import NomimateForm from "./nominateForm"
 class Nomination extends Component {
 
   componentDidMount() {
-    this.props.fetchCandidatesIfNeeded()
+    this.props.getCandidates()
   }
 
 
   render() {
-    const { isFetching, candidates, currentCandidate } = this.props
-
+    const { candidates, currentCandidate } = this.props
     return (
        <div>
          <Header />
@@ -29,16 +28,15 @@ class Nomination extends Component {
 }
  
 function mapStateToProps(state) {
-  const { isFetching, candidates, currentCandidate } = state.candidates
+  const { candidates, currentCandidate } = state.candidates
   return {
-    isFetching,
     candidates,
     currentCandidate
   }
 }
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    fetchCandidatesIfNeeded: fetchCandidatesIfNeeded
+    getCandidates: getCandidates
   }, dispatch)
 }
  

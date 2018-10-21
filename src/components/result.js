@@ -1,7 +1,7 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { fetchVotesIfNeeded } from "../redux/actions/votesActions"
+import { getVotes } from "../redux/actions/votesActions"
 import Header from "./header"
 import VotesChart from "./votesChart"
 import VotesSummary from "./votesSummary"
@@ -11,13 +11,12 @@ import VotesSummary from "./votesSummary"
 class Result extends Component {
 
   componentDidMount() {
-    this.props.fetchVotesIfNeeded()
+    this.props.getVotes()
   }
 
 
   render() {
     const { votes } = this.props
-    console.log('votes :', votes);
     return (
        <div>
          <Header />
@@ -37,7 +36,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    fetchVotesIfNeeded: fetchVotesIfNeeded
+    getVotes: getVotes
   }, dispatch)
 }
  

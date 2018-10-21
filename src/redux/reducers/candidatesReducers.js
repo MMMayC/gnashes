@@ -1,15 +1,10 @@
-import { REQUEST_CANDIDATES,  RECEIVE_CANDIDATES, UPDATE_CURRENT_CANDIDATE } from "../actions/candidatesActions";
+import { GET_CANDIDATES, UPDATE_CURRENT_CANDIDATE } from "../actions/candidatesActions";
 
-export default function condidatesReducers( state = {isFetching: false, condidates: [], currentCandidate: null}, action) {
+export default function condidatesReducers( state = {candidates: [], currentCandidate: null}, action) {
   switch (action.type) {
-    case REQUEST_CANDIDATES:
+    case GET_CANDIDATES:
       return Object.assign({}, state, {
-        isFetching: true
-      });
-    case RECEIVE_CANDIDATES:
-      return Object.assign({}, state, {
-        isFetching: false,
-        candidates: action.condidates
+        candidates: [...action.candidates]
       });
     case UPDATE_CURRENT_CANDIDATE:
       return Object.assign({}, state, {

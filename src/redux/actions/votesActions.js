@@ -1,44 +1,30 @@
+import axios from "axios";
 
-export const REQUEST_VOTES = "REQUEST_VOTES"
-export const RECEIVE_VOTES = "RECEIVE_VOTES"
-export const UPDATE_CURRENT_CANDIDATE = "UPDATE_CURRENT_CANDIDATE"
+export const GET_VOTES = "GET_VOTES"
+export const POST_VOTE = "POST_VOTE"
 
-
-function requestVotes() {
-  return {
-    type: REQUEST_VOTES
-  }
-}
-
-function receiveVotes(json) {
-  return {
-    type: RECEIVE_VOTES,
-    candidates: json
-  }
-}
-
-function fetchVotes() {
+export function getVotes() {
   return dispatch => {
-    dispatch(requestVotes())
-    return fetch(`data/votes.json`)
-      .then(response => response.json())
-      .then(json => dispatch(receiveVotes(json)))
+    axios.get("/votes").then(res => {
+      dispatch({
+        type: GET_VOTES,
+        candidates: res.data
+      });
+    }).catch(err => {
+      throw(err);
+    });
   }
 }
 
-function shouldFetchVotes(state) {
-  const candidates = state.candidates
-  if (candidates.length==0) {
-    return true
-  } else if (state.isFetching) {
-    return false
-  }
-}
-
-export function fetchVotesIfNeeded() {
-  return (dispatch, getState) => {
-    if (shouldFetchVotes(getState())) {
-      return dispatch(fetchVotes())
-    }
+export function postVote(vote) {
+  return (dispatch) => {
+    axios.post("/vote", vote).then((res) => {
+      dispatch({
+        type: POST_VOTE,
+        vote: vote
+      })
+    }).catch(((err) => {
+      throw(err);
+    }))
   }
 }
