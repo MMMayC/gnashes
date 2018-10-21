@@ -11,12 +11,12 @@ import VotesSummary from "./votesSummary"
 class Result extends Component {
 
   componentDidMount() {
-    this.props.getVotes()
+    this.props.getVotes();
   }
 
 
   render() {
-    const { votes } = this.props
+    const { votes } = this.props;
     return (
        <div>
          <Header />
@@ -28,9 +28,8 @@ class Result extends Component {
 }
  
 function mapStateToProps(state) {
-  const { isFetching, votes } = state.votes
+  const { votes } = state.votes
   return {
-    isFetching,
     votes
   }
 }

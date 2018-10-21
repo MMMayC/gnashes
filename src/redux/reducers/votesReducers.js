@@ -9,7 +9,7 @@ export default function condidatesReducers( state = {votes: []}, action) {
     case POST_VOTE:
       return Object.assign({}, state, {
         votes: [...state.votes, action.vote]
-      })
+      });
     default:
       return state
   }

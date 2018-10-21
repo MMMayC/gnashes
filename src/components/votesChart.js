@@ -5,9 +5,15 @@ class VotesChart extends Component {
     render(){
       return (
         <div className="VotesChart">
-          {this.props.votes.map(vote => {
-            <IndividualVote vote={vote} />
-          })}
+          {
+            this.props.votes && this.props.votes !=[] ?
+            this.props.votes.map(vote => {
+              return(
+                <IndividualVote vote={vote} />
+              )
+            }) 
+            : ""
+          }
         </div>
       );
     }

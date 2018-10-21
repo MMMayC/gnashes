@@ -8,7 +8,7 @@ export function getVotes() {
     axios.get("/votes").then(res => {
       dispatch({
         type: GET_VOTES,
-        candidates: res.data
+        votes: res.data
       });
     }).catch(err => {
       throw(err);
@@ -18,13 +18,15 @@ export function getVotes() {
 
 export function postVote(vote) {
   return (dispatch) => {
-    axios.post("/vote", vote).then((res) => {
+    console.log('vote :', vote);
+    axios.post("/vote", vote).then(res => {
+      console.log('vote :', vote);
       dispatch({
         type: POST_VOTE,
         vote: vote
-      })
-    }).catch(((err) => {
+      });
+    }).catch(err => {
       throw(err);
-    }))
+    });
   }
 }

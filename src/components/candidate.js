@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import NominateButton from "./nominateButton";
 
 class Candidate extends Component {
   render() {
