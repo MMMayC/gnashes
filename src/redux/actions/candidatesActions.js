@@ -10,7 +10,7 @@ export function getCandidates() {
         candidates: res.data
       });
     }).catch(err => {
-      throw(err);
+      console.log("Get candidates action: ", err);
     });
   }
 }

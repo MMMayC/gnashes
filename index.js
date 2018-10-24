@@ -3,9 +3,16 @@ const app = express();
 const template = require("./views/template");
 const path = require("path");
 const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+//SSR function import
+const server = require("./views/server");
 
 // Serving static files
 app.use("/public", express.static(path.resolve(__dirname, "public")));
+
+// Body-parser configuration
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // start the server
 app.listen(process.env.PORT || 3000);
@@ -26,9 +33,6 @@ let initialState = {
   }
 }
 
-//SSR function import
-const server = require("./views/server");
-
 // server rendered home page
 app.get(["/", "/result"], (req, res) => {
   const { preloadedState, content}  = server(initialState, req.url)
@@ -38,9 +42,12 @@ app.get(["/", "/result"], (req, res) => {
 });
 
 app.post("/vote", (req, res) => {
-  var vote = req.body;
-  Votes.create(vote).catch(err => {
-    throw(err);
+  const vote = req.body;
+  Votes.create(vote, (err, votes) => {
+    if(err){
+      console.log("Post vote: ", err);
+    }
+    res.json(votes);
   });
 });
 

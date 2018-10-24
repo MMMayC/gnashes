@@ -7,11 +7,11 @@ class NominateButton extends Component {
   constructor(props) {
     super(props);
     this.openNominateForm = this.openNominateForm.bind(this);
+    this.nominateFormElement = document.querySelector(".NominateForm");
   }
   openNominateForm() {
     this.props.updateCurrentCandidate(this.props.candidate);
-    let nominateFormElement = document.querySelector(".NominateForm");
-    nominateFormElement.setAttribute("style", "display: flex;");
+    this.nominateFormElement.setAttribute("style", "display: block;");
   }
   render() {
     return (

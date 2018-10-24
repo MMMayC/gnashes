@@ -28,7 +28,8 @@ class Result extends Component {
 }
  
 function mapStateToProps(state) {
-  const { votes } = state.votes
+  const { votes } = state.votes;
+  console.log('votes :', votes);
   return {
     votes
   }

@@ -2,6 +2,7 @@ import React, {Component} from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
 import { getCandidates } from "../redux/actions/candidatesActions"
+import { getVotes } from "../redux/actions/votesActions"
 
 import Candidates from "./candidates"
 import Header from "./header"
@@ -11,7 +12,8 @@ import NomimateForm from "./nominateForm"
 class Nomination extends Component {
 
   componentDidMount() {
-    this.props.getCandidates()
+    this.props.getCandidates();
+    this.props.getVotes();
   }
 
 
@@ -36,7 +38,8 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    getCandidates: getCandidates
+    getCandidates: getCandidates,
+    getVotes: getVotes
   }, dispatch)
 }
  
