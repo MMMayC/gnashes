@@ -41,7 +41,7 @@ class NominateForm extends Component {
             this.onSuccessCopyElement.classList.remove("show");
             this.closeNominateForm();
             this.formElement.classList.remove("hide");
-        }, 2000);
+        }, 3000);
     }
     
   render() {
