@@ -25,13 +25,16 @@
             margin: 0;
             animation-duration: 3s;
             animation-name: animated-arrow;
-            animation-iteration-count: 1;
+            animation-iteration-count: infinite;
             @keyframes animated-arrow {
                 from {
                     top: 25px;
                 }
-                to {
+                50% {
                     top: 0;
+                }
+                to {
+                    top: 25px;
                 }
             }
         }

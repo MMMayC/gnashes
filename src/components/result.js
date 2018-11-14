@@ -4,27 +4,19 @@ import { bindActionCreators } from 'redux'
 import { getVotes } from "../redux/actions/votesActions"
 import { getCandidates } from "../redux/actions/candidatesActions"
 import Header from "./header"
-import VotesChart from "./votesChart"
-import VotesSummary from "./votesSummary"
-
-
+import Votes from "./votes"
 
 class Result extends Component {
-
   componentDidMount() {
+    this.props.getCandidates();
     this.props.getVotes();
-    // this.props.getCandidates();
   }
 
-
   render() {
-    const { votes } = this.props;
-    
     return (
        <div>
          <Header />
-         <VotesChart votes={votes} candidates={this.props.candidates} />
-         <VotesSummary votes={votes} />
+         <Votes />
        </div>
     );
   }
