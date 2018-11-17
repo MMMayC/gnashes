@@ -31,7 +31,7 @@ class Votes extends Component {
     }
   }
   getGnashes() {
-    
+
   }
   render(){
     var currentVote = this.props.votes && this.props.votes != [] ? this.props.votes[this.state.currentPage - 1] : null;
@@ -44,8 +44,8 @@ class Votes extends Component {
         }
         <div className="Votes-Count">{this.state.currentPage} | {this.props.votes && this.props.votes != [] ? this.props.votes.length : "" }</div>
         <div className="Votes-Arrow">
-          <div className="Votes-Arrow-Left" onClick={this.getPreviousVote}><i class="fas fa-chevron-left"></i></div>
-          <div className="Votes-Arrow-Right" onClick={this.getNextVote}><i class="fas fa-chevron-right"></i></div>
+          <div className="Votes-Arrow-Left" onClick={this.getPreviousVote}><i className="fas fa-chevron-left"></i></div>
+          <div className="Votes-Arrow-Right" onClick={this.getNextVote}><i className="fas fa-chevron-right"></i></div>
         </div>
       </div>
     );
