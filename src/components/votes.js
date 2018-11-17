@@ -30,6 +30,9 @@ class Votes extends Component {
       });
     }
   }
+  getGnashes() {
+    
+  }
   render(){
     var currentVote = this.props.votes && this.props.votes != [] ? this.props.votes[this.state.currentPage - 1] : null;
     return (

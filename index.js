@@ -68,3 +68,17 @@ app.get("/votes", (req, res) => {
     res.json(votes);
   })
 });
+
+app.get("/gnashes", (req, res) => {
+  Votes.aggregate([
+    {$group: {_id: "$candidate", numOfVotes: {$sum: 1}}},
+    {$sort: {numOfVotes: -1}},
+    {$limit: 1}
+  ], (err, gnashes) => {
+    if(err) {
+      throw(err);
+    }
+    res.json(gnashes);
+  })
+});
+
