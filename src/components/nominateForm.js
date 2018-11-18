@@ -46,7 +46,7 @@ class NominateForm extends Component {
     
   render() {
     return (
-        <div className="NominateForm">
+        <div className="NominateForm Modal">
             <form className="NominateForm-Form">
                 {this.props.currentCandidate != null ? <Candidate candidate={this.props.currentCandidate} /> : ""}
                 <label className="NominateForm-Form-Label NominateForm-Value-Label">Value</label>

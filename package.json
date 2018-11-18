@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "pack": "webpack --config webpack.config.js",
-    "pack-watch": "webpack --watch --config webpack.config.js",
+    "webpack": "webpack --config webpack.config.js --mode production",
+    "webpack-watch": "webpack --watch --config webpack.config.js --mode development",
     "babel": "babel src -d views",
     "babel-watch": "babel --watch src -d views",
-    "build": "npm run pack && npm run babel"
+    "build": "npm run webpack && npm run babel"
   },
   "repository": {
     "type": "git",

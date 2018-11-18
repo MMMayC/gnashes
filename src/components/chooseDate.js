@@ -18,13 +18,14 @@ class ChooseDate extends Component {
     }
   render() {
     return (
-        <div className="ChooseDate">
-            <form>
-                <label>From</label>
+        <div className="ChooseDate Modal">
+            <div>Please choose the date</div>
+            <form className="Form">
+                <label className="Form-Label">From</label>
                 <input type="date" ref="from" />
-                <label>To</label>
+                <label className="Form-Label">To</label>
                 <input type="date" ref="to" />
-                <input type="submit" onClick={this.submitDate} />
+                <input type="submit" className="Button" onClick={this.submitDate} />
             </form>
         </div>
     );

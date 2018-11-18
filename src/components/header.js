@@ -4,7 +4,7 @@ class Header extends Component {
     render(){
       return (
         <div className="Header">
-            <div className="Header-Pacific">Pacific Digital</div>
+            <div className="Header-Pacific">Pacific Magazines</div>
             <div className="Header-Grizzly">
                 <img src="public/img/grizzly.png" />
             </div>

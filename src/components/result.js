@@ -6,6 +6,7 @@ import { getCandidates } from "../redux/actions/candidatesActions"
 import Header from "./header"
 import Votes from "./votes"
 import ChooseDate from "./chooseDate";
+import Vote from "./vote";
 
 class Result extends Component {
   componentDidMount() {
@@ -14,13 +15,17 @@ class Result extends Component {
 
   render() {
     return (
-       <div className="Result">
+       <div>
          <Header />
-         {
-           this.props.gnashes ?
-           <Votes /> :
-           <ChooseDate />
-          }
+         <div className="Result">
+          {
+            this.props.votes == null ?
+              <ChooseDate /> :
+              this.props.votes.length < 1 ?
+                <div>No votes during this time, try again <ChooseDate /></div> :
+                <Votes />
+            }
+          </div>
        </div>
     );
   }
