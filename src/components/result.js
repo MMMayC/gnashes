@@ -1,40 +1,46 @@
 import React, {Component} from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from 'redux'
-import { getVotes } from "../redux/actions/votesActions"
+import { getVotes, getGnashes } from "../redux/actions/votesActions"
 import { getCandidates } from "../redux/actions/candidatesActions"
 import Header from "./header"
 import Votes from "./votes"
+import ChooseDate from "./chooseDate";
 
 class Result extends Component {
   componentDidMount() {
     this.props.getCandidates();
-    this.props.getVotes();
   }
 
   render() {
     return (
-       <div>
+       <div className="Result">
          <Header />
-         <Votes />
+         {
+           this.props.gnashes ?
+           <Votes /> :
+           <ChooseDate />
+          }
        </div>
     );
   }
 }
  
 function mapStateToProps(state) {
-  const { votes } = state.votes;
+  const { votes, gnashes } = state.votes;
   const { candidates } = state.candidates;
   return {
     votes,
-    candidates
+    candidates,
+    gnashes
   }
 }
 
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
     getVotes: getVotes,
-    getCandidates: getCandidates
+    getCandidates: getCandidates,
+    getGnashes: getGnashes
   }, dispatch)
 }
  

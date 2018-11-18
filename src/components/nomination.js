@@ -13,7 +13,6 @@ class Nomination extends Component {
 
   componentDidMount() {
     this.props.getCandidates();
-    this.props.getVotes();
   }
 
 
@@ -38,8 +37,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch){
   return bindActionCreators({
-    getCandidates: getCandidates,
-    getVotes: getVotes
+    getCandidates: getCandidates
   }, dispatch)
 }
  

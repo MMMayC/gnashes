@@ -29,7 +29,8 @@ let initialState = {
     currentCandidate: null
   },
   votes: {
-    votes: null
+    votes: null,
+    gnashes: null
   }
 }
 
@@ -61,7 +62,9 @@ app.get("/candidates", (req, res) => {
 });
 
 app.get("/votes", (req, res) => {
-  Votes.find((err, votes) => {
+  Votes.aggregate([
+    {$match: {timestamp: {$gte: new Date(req.query.from), $lte: new Date(req.query.to)}}}
+  ], (err, votes) => {
     if(err) {
       throw(err);
     }
@@ -71,6 +74,7 @@ app.get("/votes", (req, res) => {
 
 app.get("/gnashes", (req, res) => {
   Votes.aggregate([
+    {$match: {timestamp: {$gte: new Date(req.query.from), $lte: new Date(req.query.to)}}},
     {$group: {_id: "$candidate", numOfVotes: {$sum: 1}}},
     {$sort: {numOfVotes: -1}},
     {$limit: 1}

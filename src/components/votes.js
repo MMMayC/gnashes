@@ -30,7 +30,7 @@ class Votes extends Component {
       });
     }
   }
-  getGnashes() {
+  revealWinner() {
 
   }
   render(){
@@ -53,11 +53,12 @@ class Votes extends Component {
 }
 
 function mapStateToProps(state) {
-  const { votes } = state.votes;
+  const { votes, gnashes } = state.votes;
   const { candidates } = state.candidates;
   return {
     votes,
-    candidates
+    candidates,
+    gnashes
   }
 }
  
