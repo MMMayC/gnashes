@@ -47,19 +47,19 @@ class NominateForm extends Component {
   render() {
     return (
         <div className="NominateForm Modal">
-            <form className="NominateForm-Form">
+            <form className="NominateForm-Form Form">
                 {this.props.currentCandidate != null ? <Candidate candidate={this.props.currentCandidate} /> : ""}
-                <label className="NominateForm-Form-Label NominateForm-Value-Label">Value</label>
-                <select className="NominateForm-Form-Value-Select" ref="value">
+                <label className="Form-Label NominateForm-Form-Label NominateForm-Value-Label">Value</label>
+                <select className="Form-Input NominateForm-Form-Value-Select" ref="value">
                     <option value="fun">Fun</option>
                     <option value="respectable">Respectable</option>
                     <option value="collaboration">Collaboration</option>
                     <option value="curious">Curious</option>
                     <option value="artisan">Artisan</option>
                 </select>
-                <label className="NominateForm-Form-Label NominateForm-Form-Achievement-Label">Achievement</label>
-                <textarea className="NominateForm-Form-Achievement-Textarea" ref="achievement"></textarea>
-                <input type="submit" className="Button NominateForm-Form-Submit" onClick={this.submitNomination}/>
+                <label className="Form-Label NominateForm-Form-Label NominateForm-Form-Achievement-Label">Achievement</label>
+                <textarea className="Form-Input NominateForm-Form-Achievement-Textarea" ref="achievement"></textarea>
+                <input type="submit" className="Button Form-Input Form-Submit NominateForm-Form-Submit" onClick={this.submitNomination}/>
                 <a className="NominateForm-Form-Cancel" onClick={this.closeNominateForm}>Cancel</a>
             </form>
             <div className="NominateForm-onSuccess">

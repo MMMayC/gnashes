@@ -22,7 +22,7 @@ class Result extends Component {
             this.props.votes == null ?
               <ChooseDate /> :
               this.props.votes.length < 1 ?
-                <div>No votes during this time, try again <ChooseDate /></div> :
+                <div><div className="Message-Error">No valid votes during the dates, please try again</div><ChooseDate /></div> :
                 <Votes />
             }
           </div>

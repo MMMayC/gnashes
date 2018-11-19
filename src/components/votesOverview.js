@@ -1,3 +1,5 @@
+{/* <i class="fas fa-fish"></i> */}
+
 import React, {Component} from "react";
 import Candidate from "./candidate";
 
