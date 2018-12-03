@@ -3,87 +3,93 @@ import { connect } from "react-redux";
 import update from 'immutability-helper';
 import Vote from "./vote";
 import Gnashes from "./gnashes";
+import Overview from "./overview";
 
 class Votes extends Component {
   constructor(props) {
     super(props);
     this.findCandidateByName = this.findCandidateByName.bind(this);
     this.getNextVote = this.getNextVote.bind(this);
-    this.updateVotesOverview = this.updateVotesOverview.bind(this);
-    this.getPreviousVote = this.getPreviousVote.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.updateOverview = this.updateOverview.bind(this);
     this.state = {
-      currentPage: 1,
+      currentVoteIndex: 0,
       revealGnashes: false,
-      overviewCandidates: [],
-      overviewVotes: []
+      currentCandidates: [],
+      currentVotes: []
     }
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyDown);
   }
   findCandidateByName(candidateName) {
     const candidate = this.props.candidates.filter(candidate => candidate.name == candidateName);
     return candidate[0];
   }
+  handleKeyDown(e) {
+    switch (e.keyCode) {
+      case 32:
+        this.getNextVote();
+        break;
+      default:
+        break;
+    }
+  }
   getNextVote() {
-    if(this.state.currentPage < this.props.votes.length) {
+    if(this.state.currentVoteIndex < this.props.votes.length - 1) {
       this.setState({
-        currentPage: ++ this.state.currentPage,
+        currentVoteIndex: ++ this.state.currentVoteIndex,
       });
     } else {
       this.setState({
         revealGnashes: true
       })
     }
-    this.updateVotesOverview();
+    this.updateOverview(this.state.currentVoteIndex);
+
   }
-  updateVotesOverview(){
-    if(this.state.currentPage == 1) {
-      console.log('this.props.votes[0].candidate :', this.props.votes[0].candidate);
+  updateOverview(currentIndex) {
+    let currentVote = this.props.votes && this.props.votes != [] ? this.props.votes[this.state.currentVoteIndex] : null;
+    if(currentIndex == 1) {
       this.setState({
-        overviewCandidates: [this.props.votes[0].candidate],
-        overviewVotes: [1]
+        currentCandidates: update(this.state.currentCandidates, {$push: [this.props.votes[0].candidate]}),
+        currentVotes: update(this.state.currentVotes, {$push: [1]})
       })
     }
 
-    const currentCandidate = this.props.votes[this.state.currentPage - 1].candidate;
-    const candidateIndex = this.state.overviewCandidates.indexOf(currentCandidate);
+    let index = this.state.currentCandidates.indexOf(currentVote.candidate);
 
-    if(candidateIndex > -1 ) {
+    if(index < 0) {
       this.setState({
-        overviewVotes: update(this.state.overviewVotes, {candidateIndex: {$set: ++ this.state.overviewVotes[candidateIndex]}})
+        currentCandidates: update(this.state.currentCandidates, {$push: [currentVote.candidate]}),
+        currentVotes: update(this.state.currentVotes, {$push: [1]})
       })
     } else {
+      let count = this.state.currentVotes[index];
       this.setState({
-        overviewCandidates: update(this.state.overviewCandidates, {$push: [currentCandidate]}),
-        overviewVotes: update(this.state.overviewVotes, {$push: [1]})
+        currentVotes: update(this.state.currentVotes,{[index]: {$set: ++count}})
       })
-    }
-
-    console.log('this.state.overviewCandidates :', this.state.overviewCandidates);
-    console.log('this.state.overviewVotes :', this.state.overviewVotes);
-
-  }
-  getPreviousVote() {
-    if(this.state.currentPage > 1) {
-      this.setState({
-        currentPage: -- this.state.currentPage
-      });
     }
   }
 
   render(){
-    let currentVote = this.props.votes && this.props.votes != [] ? this.props.votes[this.state.currentPage - 1] : null;
+   let currentVote = this.props.votes && this.props.votes != [] ? this.props.votes[this.state.currentVoteIndex] : null;
     return (
       <div className="Votes">
         {
           this.state.revealGnashes == true ?
           <Gnashes candidate={this.findCandidateByName(this.props.gnashes._id)} /> :
-            currentVote ?
-              <Vote vote={currentVote} candidate={this.findCandidateByName(currentVote.candidate)} />
-              : ""
+          <Vote vote={currentVote} candidate={this.findCandidateByName(currentVote.candidate)} />
         }
-        <div className="Votes-Actions">
-          <div className="Votes-Actions-Arrow Votes-Actions-Arrow-Left" onClick={this.getPreviousVote}><i className="fas fa-chevron-left"></i></div>
-          <div className="Votes-Actions-Count">{this.state.currentPage} | {this.props.votes && this.props.votes != [] ? this.props.votes.length : "" }</div>
-          <div className="Votes-Actions-Arrow Votes-Actions-Arrow-Right" onClick={this.getNextVote}><i className="fas fa-chevron-right"></i></div>
+        <div className="Votes-Overview">
+          {this.state.currentCandidates != [] ?
+            this.state.currentCandidates.map((candidate, index) => {
+              return(
+                <Overview candidate={this.findCandidateByName(candidate)} voteCount={this.state.currentVotes[index]} />
+              );
+            }) :
+            ""  
+        }
         </div>
       </div>
     );

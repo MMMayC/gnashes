@@ -6,7 +6,7 @@ class Gnashes extends Component {
   render() {
     return (
       <div className="Gnashes Modal">
-        <div><img src="public/img/gnashes.png" /></div>
+        <img src="public/img/gnashes.png" className="Gnashes-Trophy" />
         <Candidate candidate={this.props.candidate} />
       </div>
     );
