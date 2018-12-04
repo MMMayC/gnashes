@@ -10,11 +10,11 @@ class Vote extends Component {
         </div>
         <div className="Vote-Details">
           <div className="Vote-Details-Value">
-            <p>Value</p>
+            <h3>Value</h3>
             <p>{this.props.vote.value}</p>
           </div>
           <div className="Vote-Details-Achievement">
-            <p>Achievement</p>
+            <h3>Achievement</h3>
             <p>{this.props.vote.achievement}</p>
           </div>
         </div>

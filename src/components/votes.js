@@ -82,10 +82,16 @@ class Votes extends Component {
           <Vote vote={currentVote} candidate={this.findCandidateByName(currentVote.candidate)} />
         }
         <div className="Votes-Overview">
-          {this.state.currentCandidates != [] ?
+          {this.state.revealGnashes == true ?
+          this.props.candidates.map((candidate, index) => {
+            return(
+              <Overview candidate={candidate} gnashes={true} key={index + 100} />
+            );
+        }) :
+          this.state.currentCandidates != [] ?
             this.state.currentCandidates.map((candidate, index) => {
               return(
-                <Overview candidate={this.findCandidateByName(candidate)} voteCount={this.state.currentVotes[index]} />
+                <Overview candidate={this.findCandidateByName(candidate)} voteCount={this.state.currentVotes[index]} gnashes={false} key={index} />
               );
             }) :
             ""  
