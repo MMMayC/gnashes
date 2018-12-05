@@ -97,6 +97,11 @@ class Votes extends Component {
             ""  
         }
         </div>
+        {
+          this.state.revealGnashes == true ?
+          "" :
+          <div className="Votes-Count">{this.state.currentVoteIndex + 1} / {this.props.votes && this.props.votes != [] ? this.props.votes.length : "" }</div>
+        }
       </div>
     );
   }
